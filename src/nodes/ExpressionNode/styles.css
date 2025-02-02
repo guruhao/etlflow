@@ -1,0 +1,235 @@
+/* 表达式节点的基本样式 */
+.expression-node {
+  position: relative;
+  background-color: #e0dfd5;
+  border: 1px solid #999;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  overflow: visible;
+}
+
+/* 选中状态的节点样式 */
+.expression-node.selected {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* 最小化状态的节点样式 */
+.expression-node.minimized {
+  width: 48px;
+  height: 48px;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  padding: 0;
+  border-radius: 4px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(to right, #8b3a3a, #cc7a7a);
+}
+
+/* 最小化状态下的通用样式 */
+.expression-node.minimized .expression-node-header {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.expression-node.minimized .expression-node-header img {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+/* 节点头部的基本样式 */
+.expression-node-header {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: linear-gradient(to right, #8b3a3a, #cc7a7a);
+  color: white;
+}
+
+.expression-node-header img {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.expression-node-header span {
+  font-size: 0.875rem;
+  font-family: sans-serif;
+}
+
+/* 节点头部按钮组和按钮样式 */
+.expression-node-header-buttons {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.expression-node-button {
+  width: 1rem;
+  height: 1rem;
+  background-color: #e0dfd5;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 0.75rem;
+}
+
+/* 节点内容区域样式 */
+.expression-node-content {
+  padding: 0.5rem;
+}
+
+/* 表格样式 */
+.expression-node-table-header {
+  display: flex;
+  border-bottom: 1px solid #999;
+  background-color: #e0dfd5;
+}
+
+.expression-node-table-header-cell {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  font-family: sans-serif;
+}
+
+.expression-node-table-header-cell.name,
+.expression-node-table-cell.name {
+  flex: 1;
+}
+
+.expression-node-table-header-cell.expr,
+.expression-node-table-cell.expr {
+  width: 5rem;
+}
+
+.expression-node-table-body {
+  background-color: white;
+}
+
+.expression-node-table-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.expression-node-table-row:hover {
+  background-color: #eff6ff;
+}
+
+.expression-node-table-cell {
+  display: flex;
+  align-items: center;
+}
+
+.expression-node-table-cell.expr {
+  padding: 0.25rem 0.5rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+/* 拖用手柄样式 */
+.expression-node-grip {
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  margin: 0 0.25rem;
+}
+
+.expression-node-grip-dots {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+.expression-node-grip-dot {
+  width: 2px;
+  height: 2px;
+  background-color: #9ca3af;
+  border-radius: 50%;
+}
+
+.expression-node-cell-text {
+  padding: 0.25rem 0.5rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+/* 调整大小手柄样式 */
+.expression-node-resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: se-resize;
+  border-right: 2px solid #666;
+  border-bottom: 2px solid #666;
+}
+
+/* 连接点样式 */
+.expression-node-handle {
+  background: #b1b1b7;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.7;
+  position: relative;
+  cursor: crosshair;
+}
+
+.expression-node-handle.left {
+  margin-left: -4px;
+}
+
+.expression-node-handle.right {
+  margin-right: -4px;
+}
+
+.expression-node.minimized .expression-node-handle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.expression-node.minimized .expression-node-handle.left {
+  left: -4px;
+}
+
+.expression-node.minimized .expression-node-handle.right {
+  right: -4px;
+}
+
+/* 行连接点容器样式 */
+.expression-node-row-handles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.expression-node-row-handle-pair {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+}
